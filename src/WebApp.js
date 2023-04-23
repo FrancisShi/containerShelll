@@ -156,7 +156,7 @@ export default function Container(props) {
     avatarInfo.mindName
   ) {
     return (
-      <div style={{ width: "100vw", height: isMob ? "70vh" : "80vh" }}>
+      <div style={{ width: "100vw", height: "100vh" }}>
         <App
           sessionCb={(_sessionId) => {}}
           config={{
