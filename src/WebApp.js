@@ -185,7 +185,8 @@ export default function Container(props) {
               headers: {},
             },
             userConfig: {
-              userName: avatarInfo.mindName,
+              // userName: avatarInfo.mindName,
+              userName: "", // 独立站设置为空，走默认的心智
               picture: avatarInfo.avatar,
               model: avatarInfo.model,
               type: avatarInfo.type,
