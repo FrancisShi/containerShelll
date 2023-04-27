@@ -186,7 +186,7 @@ export default function Container(props) {
             },
             userConfig: {
               // userName: avatarInfo.mindName,
-              userName: "", // 独立站设置为空，走默认的心智
+              userName: "Anonymous User", // 独立站初始设置为匿名
               picture: avatarInfo.avatar,
               model: avatarInfo.model,
               type: avatarInfo.type,
