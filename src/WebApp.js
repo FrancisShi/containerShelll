@@ -59,7 +59,7 @@ export default function Container(props) {
         method: "post",
         data: { mindId },
         headers: {
-          AuthType: "STATION_KEY",
+          "M-AuthType": "STATION_KEY",
           merchantId,
           platform: "web",
           appId,
