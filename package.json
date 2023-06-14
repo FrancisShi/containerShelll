@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@mindverse/container": "1.10.3",
+    "@mindverse/container": "1.13.11",
     "fingerprintjs2": "^2.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf ./build && react-scripts build",
+    "build": "yarn && rm -rf ./build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
