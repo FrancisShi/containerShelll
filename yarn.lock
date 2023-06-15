@@ -1674,10 +1674,10 @@
     lodash "^4.17.21"
     three "^0.124.0"
 
-"@mindverse/container@1.13.11":
-  version "1.13.11"
-  resolved "https://registry.yarnpkg.com/@mindverse/container/-/container-1.13.11.tgz#80d19491e486c801f5179c0e34d393245e290d39"
-  integrity sha512-UiQKsKGvhkOcXVuJNz5Oiv2Tfvh8x7FZk/yhVKwEm90auE1I1QeBbk7CKQE0aBgg+eQAEzvvV4zmFmmWiug6OQ==
+"@mindverse/container@1.13.14":
+  version "1.13.14"
+  resolved "https://registry.yarnpkg.com/@mindverse/container/-/container-1.13.14.tgz#de68f97d2069086eec9f0b4255d602bd869875d3"
+  integrity sha512-0ZhMtgkNb0BlrJyAK5F3G/5SoZogyjEMwTP+hGQcgxpkSi4WmZupmruKJWe+OuqjASEO8jss3yoxNvlwfKE4Dg==
   dependencies:
     "@azure/storage-blob" "^12.14.0"
     "@mindverse/accessor-open" "^0.8.1"
