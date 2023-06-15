@@ -3,13 +3,11 @@
  */
 import App, { DevelopType } from "@mindverse/container";
 import Fingerprint2 from "fingerprintjs2"; // 引入fingerprintjs2
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import request from "./request";
-import { browserType } from "./util";
 
-export default function Container(props) {
+export default function Container() {
   const [refUserId, setRefUserId] = useState("");
-  const parentUrlRef = useRef("");
 
   // 解析 URL 对象
   const url = new URL(window.location.href);
@@ -17,7 +15,8 @@ export default function Container(props) {
   const params = new URLSearchParams(url.search);
 
   // 获取指定参数的值
-  const host = params.get("host") || "https://mindos.com/gate";
+  // const host = params.get("host") || "https://mindos.com/gate";
+  const host = "https://mindos.com/gate";
   const merchantId = params.get("merchantId") || "c1dyy";
   const appId =
     params.get("appId") || "os_6749495f-ae3c-4f87-9233-f233d670e3dc";
@@ -42,13 +41,13 @@ export default function Container(props) {
     });
   };
 
-  <script
-    id="mv-client-messenger-widget"
-    src="https://cdn.mindverse.com/container/script.js"
-    defer
-  >
-    https://mindos.com/gate,c1dyy,os_6749495f-ae3c-4f87-9233-f233d670e3dc,97858626479329280
-  </script>;
+  // <script
+  //   id="mv-client-messenger-widget"
+  //   src="https://cdn.mindverse.com/container/script.js"
+  //   defer
+  // >
+  //   https://mindos.com/gate,c1dyy,os_6749495f-ae3c-4f87-9233-f233d670e3dc,97858626479329280
+  // </script>;
   useEffect(() => {
     if (host && merchantId && appId && mindId) {
       request({
@@ -144,8 +143,6 @@ export default function Container(props) {
       element[0].classList.add(uniqueClassName);
     }
   }, []);
-
-  const isMob = browserType() === "mob";
 
   if (
     refUserId &&
