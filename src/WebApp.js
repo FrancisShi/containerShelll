@@ -17,7 +17,7 @@ export default function Container(props) {
   const params = new URLSearchParams(url.search);
 
   // 获取指定参数的值
-  const host = params.get("host") || "https://mindos.us.mindverse.ai/gate";
+  const host = params.get("host") || "https://mindos.com/gate";
   const merchantId = params.get("merchantId") || "c1dyy";
   const appId =
     params.get("appId") || "os_6749495f-ae3c-4f87-9233-f233d670e3dc";
@@ -42,14 +42,12 @@ export default function Container(props) {
     });
   };
 
-  // ?host=https://mindos.us.mindverse.ai/gate&merchantId=c1dyy&appId=os_6749495f-ae3c-4f87-9233-f233d670e3dc&mindId=97858626479329280
-  // <script id="mv-client-messenger-widget" src="https://cdn.mindverse.com/container/script.js" defer>https://mindos.us.mindverse.ai/gate,c1dyy,os_6749495f-ae3c-4f87-9233-f233d670e3dc,97858626479329280</script>
   <script
     id="mv-client-messenger-widget"
     src="https://cdn.mindverse.com/container/script.js"
     defer
   >
-    https://mindos.us.mindverse.ai/gate,c1dyy,os_6749495f-ae3c-4f87-9233-f233d670e3dc,97858626479329280
+    https://mindos.com/gate,c1dyy,os_6749495f-ae3c-4f87-9233-f233d670e3dc,97858626479329280
   </script>;
   useEffect(() => {
     if (host && merchantId && appId && mindId) {
@@ -158,7 +156,7 @@ export default function Container(props) {
     return (
       <div style={{ width: "100vw", height: "100vh" }}>
         <App
-          sessionCb={(_sessionId) => {}}
+          inIframe
           config={{
             mindConfig: {
               mindId,
@@ -204,8 +202,7 @@ export default function Container(props) {
               bottom: "0px",
             },
             dynamicHeight: false,
-            developType: DevelopType.SCRIPT,
-            isPC: false,
+            developType: DevelopType.SCRIPT
           }}
         />
       </div>
