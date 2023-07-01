@@ -9,6 +9,7 @@ div {
 body {
   scrollbar-width: none !important; /* Firefox */
   -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+  margin: 0;
 
   -webkit-user-select: text;
   -moz-user-select: text;

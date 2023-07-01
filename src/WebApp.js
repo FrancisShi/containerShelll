@@ -3,10 +3,32 @@
  */
 import App, { DevelopType } from "@mindverse/container";
 import Fingerprint2 from "fingerprintjs2"; // 引入fingerprintjs2
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import request from "./request";
 
-export default function Container() {
+function getFinger(callback) {
+  // 选择哪些信息作为浏览器指纹生成的依据
+  const options = {
+    fonts: {
+      extendedJsFonts: true,
+    },
+    excludes: {
+      audio: true,
+      userAgent: true,
+      enumerateDevices: true,
+      touchSupport: true,
+    },
+  };
+  // 浏览器指纹
+  Fingerprint2.get(options, (components) => {
+    // 参数只有回调函数或者options为{}时，默认浏览器指纹依据所有配置信息进行生成
+    const values = components.map((component) => component.value); // 配置的值的数组
+    const murmur = Fingerprint2.x64hash128(values.join(""), 31); // 生成浏览器指纹
+    callback && callback(murmur);
+  });
+};
+
+function Container() {
   const [refUserId, setRefUserId] = useState("");
 
   // 解析 URL 对象
@@ -30,24 +52,17 @@ export default function Container() {
     gender: "",
   });
 
-  const setDefault = () => {
+  const setDefault = useCallback(() => {
     console.error("url params error, go default");
     setAvatarInfo({
       mindName: "Angela",
       avatar:
-        "https://cdn.mindverse.com/img/zzzz202304111681207263197%E5%A5%B38.png",
+        "https://cdn.mindverse.ai/mindos-resource/front-img/img/zzzz202304111681207263197%E5%A5%B38.png",
       model: "",
       type: "pictureModel",
     });
-  };
+  }, []);
 
-  // <script
-  //   id="mv-client-messenger-widget"
-  //   src="https://cdn.mindverse.com/container/script.js"
-  //   defer
-  // >
-  //   https://mindos.com/gate,c1dyy,os_6749495f-ae3c-4f87-9233-f233d670e3dc,97858626479329280
-  // </script>;
   useEffect(() => {
     if (host && merchantId && appId && mindId) {
       request({
@@ -82,28 +97,6 @@ export default function Container() {
       setDefault();
     }
   }, []);
-
-  const getFinger = (callback) => {
-    // 选择哪些信息作为浏览器指纹生成的依据
-    const options = {
-      fonts: {
-        extendedJsFonts: true,
-      },
-      excludes: {
-        audio: true,
-        userAgent: true,
-        enumerateDevices: true,
-        touchSupport: true,
-      },
-    };
-    // 浏览器指纹
-    Fingerprint2.get(options, (components) => {
-      // 参数只有回调函数或者options为{}时，默认浏览器指纹依据所有配置信息进行生成
-      const values = components.map((component) => component.value); // 配置的值的数组
-      const murmur = Fingerprint2.x64hash128(values.join(""), 31); // 生成浏览器指纹
-      callback && callback(murmur);
-    });
-  };
 
   useEffect(() => {
     if (localStorage) {
@@ -193,11 +186,6 @@ export default function Container() {
             closeStyle: {
               position: "fixed",
             },
-            avatarStyle: {
-              position: "fixed",
-              right: "0px",
-              bottom: "0px",
-            },
             dynamicHeight: false,
             developType: DevelopType.SCRIPT
           }}
@@ -208,3 +196,5 @@ export default function Container() {
     return null;
   }
 }
+
+export default memo(Container);
