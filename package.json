@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@mindverse/accessor-open": "^1.1.2",
-    "@mindverse/container": "1.15.18",
+    "@mindverse/container": "1.15.19",
     "fingerprintjs2": "^2.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
