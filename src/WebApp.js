@@ -4,7 +4,8 @@
 import App, { DevelopType } from "@mindverse/container";
 import Fingerprint2 from "fingerprintjs2"; // 引入fingerprintjs2
 import { useEffect, useState, useCallback, memo } from "react";
-import request from "./request";
+
+import request from "./request.js";
 
 function getFinger(callback) {
   // 选择哪些信息作为浏览器指纹生成的依据
@@ -159,9 +160,7 @@ function Container() {
               bizType: "",
               merchantId,
               mAuthType: "STATION_KEY",
-
               refUserId: refUserId,
-
               merchantBaseURL: host,
               merchantSocketPath: "/chat/rest/general/ws/create",
               merchantSessionOpenPath: "/chat/rest/general/session/create",
@@ -169,8 +168,6 @@ function Container() {
               merchantUserRegisterPath: "/chat/rest/general/user/register",
               merchantSocketCheckPath: "/chat/rest/general/ws/get",
               merchantSessionCheckPath: "/chat/rest/general/session/get",
-
-              headers: {},
             },
             userConfig: {
               // userName: avatarInfo.mindName,
@@ -180,13 +177,6 @@ function Container() {
               type: avatarInfo.type,
               gender: avatarInfo.gender,
             },
-            openStyle: {
-              position: "fixed",
-            },
-            closeStyle: {
-              position: "fixed",
-            },
-            dynamicHeight: false,
             developType: DevelopType.SCRIPT
           }}
         />
