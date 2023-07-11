@@ -541,10 +541,10 @@
     lodash "^4.17.21"
     three "^0.124.0"
 
-"@mindverse/container@1.15.19":
-  version "1.15.19"
-  resolved "https://registry.yarnpkg.com/@mindverse/container/-/container-1.15.19.tgz#ebdbc7380105934268ef226bffc8679bc0aec631"
-  integrity sha512-BXnotTVfoVN8FFqQRdPZqoxJH1g9qLsY8WVZVX5b6KGok8wd+B4wqYMLDTDqljbnI6wwOzdGq9LxjIZ+/21nCw==
+"@mindverse/container@1.15.20":
+  version "1.15.20"
+  resolved "https://registry.yarnpkg.com/@mindverse/container/-/container-1.15.20.tgz#2ec83776add0d02d46ac82e62d4c2fb52297b3db"
+  integrity sha512-LSiXbLmvkZEyfqskUUxAwhvoNZ/M1wH2EqsMWJB6hz5gRUj71nSbxLFhO+fsftK9G13hEfJMKBR0e0l91A8cVQ==
   dependencies:
     "@azure/storage-blob" "^12.14.0"
     "@mindverse/accessor-open" "^1.1.2"
